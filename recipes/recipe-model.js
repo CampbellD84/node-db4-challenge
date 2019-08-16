@@ -10,12 +10,13 @@ function getRecipes() {
   return db("recipes");
 }
 
-function getShoppingList(recipe_id) {
-  return db("ingredients as i")
-    .join("recipes as r", "r.id", "i.recipe_id")
-    .select("i.amount", "i.name")
-    .where({ recipe_id });
-}
+// function getShoppingList(recipe_id) {
+//   return db("recipeIngredients as ri")
+//     .join("recipes as r", "r.id", "ri.recipe_id")
+//     .join("ingredients as i", "i.recipe_id", "ri.recipe_id")
+//     .select("i.amount", "i.name")
+//     .where({ recipe_id });
+// }
 
 function getInstructions(recipe_id) {
   return db("recipeSteps as rs")

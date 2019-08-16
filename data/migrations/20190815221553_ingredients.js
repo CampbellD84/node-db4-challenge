@@ -6,6 +6,11 @@ exports.up = function(knex) {
       .string("amount", 128)
       .unsigned()
       .notNullable();
+    tbl
+      .integer("recipe_id")
+      .unsigned()
+      .references("id")
+      .inTable("recipes");
   });
 };
 
